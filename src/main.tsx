@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { createServer, Model } from 'miragejs';
 import { Router } from './routes';
+import { GlobalStyle } from './styles/global';
 
 createServer({
   models: {
@@ -57,6 +58,7 @@ createServer({
 ReactDOM.render(
   <React.StrictMode>
     <Router />
+    <GlobalStyle />
   </React.StrictMode>,
   document.getElementById('root')
 );
