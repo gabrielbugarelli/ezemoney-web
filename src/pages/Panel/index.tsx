@@ -8,7 +8,7 @@ import { TransactionsProvider } from "../../hooks/useTransactions";
 
 Modal.setAppElement('#root');
 
-export const App = () => {
+export const Panel = () => {
 
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
 

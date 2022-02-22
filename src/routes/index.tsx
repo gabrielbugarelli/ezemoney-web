@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Authentication } from '../pages/Authentication';
-import { App } from '../pages/Panel/App';
+import { SignIn } from '../pages/SignIn';
+import { Panel } from '../pages/Panel';
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={< Authentication />} />
-        <Route path='/panel' element={ <App />} />
+        <Route path='/' element={< SignIn />} />
+        <Route path='/panel' element={ <Panel />} />
       </Routes>
     </BrowserRouter>
   )
