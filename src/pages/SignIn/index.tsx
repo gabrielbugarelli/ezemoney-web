@@ -18,9 +18,9 @@ export const SignIn = () => {
       </DescriptionContainer>
 
       <SignInContainer>
-        <h1>Logo do Kashflow</h1>
-
         <div>
+          <h1>Logo do Kashflow</h1>
+
           <button>
             <img src={googleIcon} alt="Logo do Google" />
             Entre com o google

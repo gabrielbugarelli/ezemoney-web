@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { createServer, Model } from 'miragejs';
 import { Router } from './routes';
+
 import { GlobalStyle } from './styles/global';
 
 import './services/firebaseConnection';

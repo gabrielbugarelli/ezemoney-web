@@ -15,23 +15,28 @@ export const SignInContainer = styled.section`
 
   background-color: var(--background);
 
-  h1 {
-    color: var(--green);
-    margin: 4rem auto;
-  }
-
-  div {
+  > div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: #E2E8F0;
+    
+    gap: 3rem;
 
-    width: 300px;
+    > h1 {
+      color: var(--green);
+    }
+
     > button {
-      width: 100%;
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+      width: 70%;
+      gap: 1rem;
 
       color: var(--background);
       background-color: var(--red-100);
