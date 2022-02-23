@@ -55,12 +55,12 @@ export const SignInContainer = styled.section`
 `
 
 export const DescriptionContainer = styled.section`
-
   flex: 8;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   color: var(--background);
   background: var(--green);
