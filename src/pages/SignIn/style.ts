@@ -17,14 +17,13 @@ export const SignInContainer = styled.section`
 
   h1 {
     color: var(--green);
-    margin: 5rem auto;
+    margin: 4rem auto;
   }
 
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
 
     width: 300px;
     > button {
@@ -46,10 +45,6 @@ export const SignInContainer = styled.section`
       &:hover {
         filter: brightness(0.9);
       }
-    }
-
-    > span {
-      color: var(--green);
     }
   }
 `

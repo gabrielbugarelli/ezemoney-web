@@ -25,15 +25,6 @@ export const SignIn = () => {
             <img src={googleIcon} alt="Logo do Google" />
             Entre com o google
           </button>
-          
-          <span>
-            -- OU --
-          </span>
-
-          <button>
-            <img src={googleIcon} alt="Logo do Google" />
-            Crie uma conta
-          </button>
         </div>
       </SignInContainer>
     </Container>
