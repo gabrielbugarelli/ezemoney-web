@@ -13,7 +13,7 @@ export const SignIn = () => {
 
           <p>Uma ferramenta <strong> simples </strong>  para organizar as suas <strong> finanças</strong>.</p>
 
-          <footer>desenvolvido com ❤️🐺 por <a href="https://www.kanislupus.com.br/" target="_blank"> Kanis Lupus</a>.</footer>
+          <footer>desenvolvido com ❤️🐺 por <a href="https://www.kanislupus.com.br/" target="_blank" rel="noreferrer"> Kanis Lupus</a>.</footer>
         </div>
       </DescriptionContainer>
 
