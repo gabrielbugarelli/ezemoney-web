@@ -6,6 +6,7 @@ import { Router } from './routes';
 
 import { GlobalStyle } from './styles/global';
 
+//inicializa o firebase
 import './services/firebaseConnection';
 
 createServer({
