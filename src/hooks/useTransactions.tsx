@@ -1,13 +1,15 @@
 import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
-import { api } from '../services/api';
+import { collection, addDoc, getDocs, doc, getDoc } from 'firebase/firestore';
+import { database } from '../services/firebaseConnection';
 
 type Transaction = {
-  id: number;
+  id: string;
   title: string;
   amount: number;
   type: string;
   category: string;
   createdAt: string;
+  userId: string | undefined;
 }
 
 /**
@@ -31,23 +33,37 @@ export const TransactionsProvider = ({children}: TransactionsProviderProps ) => 
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   useEffect(() => {
-    api.get('/transactions')
-      .then(response => setTransactions(response.data.transactions)
+
+    getDocs(collection(database, 'transactions')).then(
+      query => {
+        query.forEach((doc) => {
+          const result = doc.data()
+
+          let data = {
+            id: doc.id,
+            title: result.title,
+            amount: result.amount,
+            type: result.type,
+            category: result.category,
+            createdAt: result.createdAt,
+            userId: result.userId
+          }          
+        })
+      }
     )
   }, []);
 
   //A responsabilidade pelo gerenciamento dos dados ficam nos HOOKs
   const createTransaction = async (transactionInput: TransactionInput) => {
-    const response = await api.post('/transactions', {
-      ...transactionInput,
-      createdAt: new Date()
-    });
-    const { transaction } = response.data;
+    try {
+      await addDoc(collection(database, "transactions"), {
+        ...transactionInput,
+        createdAt: new Date()
+      });
 
-    setTransactions([
-      ...transactions,
-      transaction
-    ]);
+    } catch (error) {
+      console.warn(`Aconteceu um erro: ${error}`);
+    }
   }
 
   return (

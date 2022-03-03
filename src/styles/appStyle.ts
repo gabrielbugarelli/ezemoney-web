@@ -28,7 +28,7 @@ export const SignInContainer = styled.section`
     gap: 3rem;
 
     > h1 {
-      color: var(--green);
+      color: var(--green-100);
     }
 
     > button {
@@ -63,7 +63,7 @@ export const DescriptionContainer = styled.section`
   justify-content: center;
 
   color: var(--background);
-  background: var(--green);
+  background: var(--green-100);
 
   div {
     max-width: 500px;

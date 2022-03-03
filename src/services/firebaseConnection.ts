@@ -1,20 +1,20 @@
-import firebase from "firebase/app";
 
-import 'firebase/auth';
+import { initializeApp } from "firebase/app";
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID
+  apiKey: "AIzaSyBFcq0N0EyZ_qVLx6j_4tgFUPdMMsRkZew",
+  authDomain: "kashflow-test.firebaseapp.com",
+  projectId: "kashflow-test",
+  storageBucket: "kashflow-test.appspot.com",
+  messagingSenderId: "471805840369",
+  appId: "1:471805840369:web:082c70dc8db833eeea1250"
 };
 
-if(!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getFirestore(app);
+const auth = getAuth();
 
-const auth = firebase.auth();
-
-export { firebase, auth };
+export { app, auth, database };

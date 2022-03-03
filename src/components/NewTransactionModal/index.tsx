@@ -6,6 +6,7 @@ import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import { FormEvent, useState } from 'react';
 import { useTransactions } from '../../hooks/useTransactions';
+import { useAuthentication } from '../../hooks/useAuthentication';
 
 type NewTransactionModalProps = {
   isOpen: boolean;
@@ -13,6 +14,9 @@ type NewTransactionModalProps = {
 }
 
 export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModalProps) => {
+
+  const { user } = useAuthentication();
+  const userId = user?.id;
 
   const { createTransaction } = useTransactions();
 
@@ -28,7 +32,8 @@ export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModa
       title,
       amount,
       category,
-      type
+      type,
+      userId
     }
 
     await createTransaction(transactionsData);
