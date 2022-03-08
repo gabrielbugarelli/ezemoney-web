@@ -17,8 +17,8 @@ export const TransactionsTable = () => {
         </thead>
 
         <tbody>
-          {transactions.map(transaction => (
-            <tr key={transaction.id}>
+          {transactions.map((transaction, key) => (
+            <tr key={key}>
               <td>{transaction.title}</td>
               
               <td className={transaction.type}>
@@ -31,9 +31,7 @@ export const TransactionsTable = () => {
               <td>{transaction.category}</td>
 
               <td>
-                {Intl.DateTimeFormat('pt-BR').format(
-                  new Date(transaction.createdAt)
-                )}
+                {/* {String(Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt)))} */}
               </td>
             </tr>
           ))}
