@@ -1,7 +1,6 @@
 import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
 import { collection, addDoc, doc, onSnapshot, query, where, QuerySnapshot } from 'firebase/firestore';
 import { database } from '../services/firebaseConnection';
-import { useAuthentication } from './useAuthentication';
 
 type Transaction = {
   id: string;
@@ -32,10 +31,10 @@ const TransactionsContext = createContext<TransactionContextData>({} as Transact
 
 export const TransactionsProvider = ({children}: TransactionsProviderProps ) => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
-  const { user } = useAuthentication();
 
   useEffect(() => {
-    const queryTransactions = query(collection(database, 'transactions'), where("userId", "==", "AyZuQj8dwRNWz3oFqs0BuNpz2yU2"));
+    const userId = localStorage.getItem('userId');
+    const queryTransactions = query(collection(database, 'transactions'), where("userId", "==", `${userId}`));
 
     onSnapshot(queryTransactions, (querySnapshot) => {
       let transactionsData: Transaction[] = [];

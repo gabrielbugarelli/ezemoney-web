@@ -66,6 +66,7 @@ export const AuthenticationProvider = ({children}: AuthenticationProviderProps) 
       }
 
       setUser(data);
+      localStorage.setItem('userId', `${user}`);
     }
   }
 
