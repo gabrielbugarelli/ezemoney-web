@@ -8,7 +8,7 @@ type Transaction = {
   amount: number;
   type: string;
   category: string;
-  createdAt: string;
+  createdAt: number;
   userId: string | undefined;
 }
 
@@ -46,7 +46,7 @@ export const TransactionsProvider = ({children}: TransactionsProviderProps ) => 
           amount: doc.data().amount,
           type: doc.data().type,
           category: doc.data().category,
-          createdAt: doc.data().createdAt.seconds,
+          createdAt: doc.data().createdAt.seconds * 1000, // retorna a data atual já convetida para Date Object
           userId: doc.data().userId
         })
       });
