@@ -31,7 +31,7 @@ export const TransactionsTable = () => {
               <td>{transaction.category}</td>
 
               <td>
-                {/* {String(Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt)))} */}
+                {String(Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt)))}
               </td>
             </tr>
           ))}

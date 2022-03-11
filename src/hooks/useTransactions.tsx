@@ -46,7 +46,7 @@ export const TransactionsProvider = ({children}: TransactionsProviderProps ) => 
           amount: doc.data().amount,
           type: doc.data().type,
           category: doc.data().category,
-          createdAt: doc.data().createdAt,
+          createdAt: doc.data().createdAt.seconds,
           userId: doc.data().userId
         })
       });
