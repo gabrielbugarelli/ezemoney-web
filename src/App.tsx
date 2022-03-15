@@ -22,7 +22,7 @@ export const App = () => {
     <Container>
       <DescriptionContainer>
         <div>
-          <img src={financeIcon} alt="Imagem de finanças do Kashflow" />
+          <img src={financeIcon} alt="Imagem de finanças do Pochette" />
           <p> Organize as suas <strong> finanças </strong> de forma <strong> prática</strong>.</p>
 
           <footer>desenvolvido com ❤️🐺 por <a href="https://www.kanislupus.com.br/" target="_blank" rel="noreferrer"> Kanis Lupus</a>.</footer>
@@ -31,7 +31,7 @@ export const App = () => {
 
       <SignInContainer>
         <div>
-          <h1>Logo do Kashflow</h1>
+          <h1>Logo do Pochette</h1>
 
           <button onClick={handleSignInWithGoogle}>
             <img src={googleIcon} alt="Logo do Google" />
