@@ -10,16 +10,16 @@ export const Header = ({onOpenNewTransactionModal}: HeaderProps)  => {
 
   const { user } = useAuthentication();
   const [ greeting, setGreeting ] = useState('');
-
+  
   useEffect(() => {
+    const dateTime = new Date().getHours();
+    
     if(user) {
-      const dateTime = new Date().getHours();
-
-      if(dateTime > 1 && dateTime < 12) {
+      if(dateTime <= 12) {
         setGreeting(`Bom dia, ${user?.name}!`);
       }
   
-      else if (dateTime > 12 && dateTime < 17) {
+      else if (dateTime > 12 && dateTime < 18) {
         setGreeting(`Boa tarde, ${user?.name}!`);
       }
   
