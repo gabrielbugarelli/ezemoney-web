@@ -41,7 +41,7 @@ export const TransactionsProvider = ({children}: TransactionsProviderProps ) => 
 
       querySnapshot.forEach(doc => {
         transactionsData.push(...transactions, {
-          id: doc.data().id,
+          id: doc.id,
           title: doc.data().title,
           amount: doc.data().amount,
           type: doc.data().type,
