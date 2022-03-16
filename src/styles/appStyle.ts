@@ -23,12 +23,11 @@ export const SignInContainer = styled.section`
     width: 400px;
     height: 400px;
     border-radius: 10px;
-    background-color: #E2E8F0;
     
     gap: 3rem;
 
-    > h1 {
-      color: var(--green-100);
+    > img {
+      width: 15rem;
     }
 
     > button {
@@ -71,7 +70,7 @@ export const DescriptionContainer = styled.section`
 
     img {
       margin: 5rem 0 0 1rem;
-      width: 20rem;
+      width: 30rem;
     }
 
     > p {

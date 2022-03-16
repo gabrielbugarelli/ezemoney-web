@@ -1,6 +1,7 @@
 import { Container, DescriptionContainer, SignInContainer } from "./styles/appStyle";
 
-import financeIcon from './assets/finance.svg';
+import capaPochette from './assets/capa_pochette.png';
+import financeICon from './assets/finance.svg';
 import googleIcon from './assets/google-icon.svg';
 import { useAuthentication } from "./hooks/useAuthentication";
 import { useNavigate } from "react-router-dom";
@@ -22,16 +23,15 @@ export const App = () => {
     <Container>
       <DescriptionContainer>
         <div>
-          <img src={financeIcon} alt="Imagem de finanças do Pochette" />
-          <p> Organize as suas <strong> finanças </strong> de forma <strong> prática</strong>.</p>
+          <img src={capaPochette} alt="Imagem de finanças do Pochette" />
 
-          <footer>desenvolvido com ❤️🐺 por <a href="https://www.kanislupus.com.br/" target="_blank" rel="noreferrer"> Kanis Lupus</a>.</footer>
+          <p> Organize as suas <strong> finanças </strong> de forma <strong> prática</strong>.</p>
         </div>
       </DescriptionContainer>
 
       <SignInContainer>
         <div>
-          <h1>Logo do Pochette</h1>
+          <img src={financeICon} alt="Logo Pochette" />
 
           <button onClick={handleSignInWithGoogle}>
             <img src={googleIcon} alt="Logo do Google" />
