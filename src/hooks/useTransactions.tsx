@@ -1,5 +1,5 @@
 import {createContext, ReactNode, useContext, useEffect, useState} from 'react';
-import { collection, addDoc, doc, onSnapshot, query, where, QuerySnapshot } from 'firebase/firestore';
+import { collection, addDoc, onSnapshot, query, where, updateDoc, doc } from 'firebase/firestore';
 import { database } from '../services/firebaseConnection';
 
 type Transaction = {
@@ -24,6 +24,7 @@ type TransactionsProviderProps = {
 type TransactionContextData = {
   transactions: Transaction[];
   createTransaction: (transaction: TransactionInput) => Promise<void>;
+  updateTransaction: (transaction: TransactionInput, transactionId: string) => Promise<void>;
 }
 
 //Contextos
@@ -68,8 +69,19 @@ export const TransactionsProvider = ({children}: TransactionsProviderProps ) => 
     }
   }
 
+  const updateTransaction = async (transactionInput: TransactionInput, transactionId: string) => {
+    try {
+      const ref = doc(database, 'transactions', transactionId);
+      await updateDoc(ref, {
+        ...transactionInput
+      })
+    } catch (error) {
+      console.warn(`Não foi possível atualizar a transação: ${error}`);
+    }
+  }
+
   return (
-    <TransactionsContext.Provider value={{transactions, createTransaction}}>
+    <TransactionsContext.Provider value={{transactions, createTransaction, updateTransaction}}>
       {children}
     </TransactionsContext.Provider>
   )

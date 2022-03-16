@@ -11,14 +11,15 @@ import { useAuthentication } from '../../hooks/useAuthentication';
 type NewTransactionModalProps = {
   isOpen: boolean;
   onRequestClose: () => void;
+  editTransactionId?: string;
 }
 
-export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModalProps) => {
+export const NewTransactionModal = ({isOpen, onRequestClose, editTransactionId}: NewTransactionModalProps) => {
 
   const { user } = useAuthentication();
   const userId = user?.id;
 
-  const { createTransaction } = useTransactions();
+  const { createTransaction, updateTransaction } = useTransactions();
 
   const [type, setType] = useState('deposit')
   const [title, setTitle] = useState('');
@@ -27,7 +28,7 @@ export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModa
 
   const handleCreateNewTransaction = async (event: FormEvent) => {
     event.preventDefault();
-
+  
     let transactionsData = {
       title,
       amount,
@@ -35,14 +36,20 @@ export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModa
       type,
       userId
     }
+    
+    if(editTransactionId) {
+      await updateTransaction(transactionsData, editTransactionId);
+    }
 
-    await createTransaction(transactionsData);
+    else {
+      await createTransaction(transactionsData);
+    }
 
     setType('');
     setTitle('');
     setAmount(0);
     setCategory('');
-    onRequestClose();    
+    onRequestClose();
   }
 
   return (
