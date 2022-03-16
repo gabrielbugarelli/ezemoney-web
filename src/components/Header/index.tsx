@@ -12,18 +12,22 @@ export const Header = ({onOpenNewTransactionModal}: HeaderProps)  => {
   const [ greeting, setGreeting ] = useState('');
 
   useEffect(() => {
-    const dateTime = new Date().getHours();
+    if(user) {
+      const dateTime = new Date().getHours();
 
-    if(dateTime > 1 && dateTime < 12) {
-      setGreeting(`Bom dia, ${user?.name}!`);
-    }
-
-    else if (dateTime > 12 && dateTime < 17) {
-      setGreeting(`Boa tarde, ${user?.name}!`);
-    }
-
-    else {
-      setGreeting(`Boa noite, ${user?.name}!`);
+      if(dateTime > 1 && dateTime < 12) {
+        setGreeting(`Bom dia, ${user?.name}!`);
+      }
+  
+      else if (dateTime > 12 && dateTime < 17) {
+        setGreeting(`Boa tarde, ${user?.name}!`);
+      }
+  
+      else {
+        setGreeting(`Boa noite, ${user?.name}!`);
+      }
+    } else {
+      setGreeting('Organize as suas finanças de forma prática.')
     }
 
   }, []);
