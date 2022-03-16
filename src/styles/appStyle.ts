@@ -4,6 +4,10 @@ export const Container = styled.main`
   display: flex;
   align-items: stretch;
   height: 100vh;
+
+  @media(max-width: 870px) {
+    flex-direction: column-reverse;
+  }
 `
 export const SignInContainer = styled.section`
   flex: 7;
@@ -90,9 +94,5 @@ export const DescriptionContainer = styled.section`
         color: var(--background);
       }
     }
-  }
-
-  @media(max-width: 870px) {
-    display: none;
   }
 `
