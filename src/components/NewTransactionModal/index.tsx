@@ -42,7 +42,7 @@ export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModa
     setTitle('');
     setAmount(0);
     setCategory('');
-    onRequestClose();
+    onRequestClose();    
   }
 
   return (
@@ -95,11 +95,10 @@ export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModa
             </RadioBox>
           </TransactionTypeContainer>
 
-          <input 
-            placeholder="Categoria" 
-            value={category}
-            onChange={event => setCategory(event.target.value)}
-          />
+          <select name="selecione" id="transactionType" onChange={e => setCategory(e.target.value.trim() === '' ? 'receita' : e.target.value)}>
+            <option value="receita">Receita</option>
+            <option value="despesa">Despesa</option>
+          </select>
 
           <button type="submit">Cadastrar</button>
         </Container>

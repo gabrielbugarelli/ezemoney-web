@@ -46,6 +46,14 @@ export const Container = styled.form`
       filter: brightness(0.9);
     }
   }
+
+  select {
+    width: 100%;
+    padding: 0 1.5rem;
+    height: 4rem;
+    border: none;
+    background-color: #e7e9ee;
+  }
 `
 
 export const TransactionTypeContainer = styled.div`
