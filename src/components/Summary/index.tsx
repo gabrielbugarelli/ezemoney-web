@@ -52,7 +52,7 @@ export const Summary = () => {
 
       <div className="highlight-background">
         <header>
-          <p>Receita</p>
+          <p>Receita Total</p>
           <img src={totalImg} alt="Total" />
         </header>
         <strong>{Intl.NumberFormat('pt-BR', {
