@@ -32,6 +32,7 @@ export const App = () => {
       <SignInContainer>
         <div>
           <img src={financeICon} alt="Logo Pochette" />
+          <h1>Faça login no Pochette</h1>
 
           <button onClick={handleSignInWithGoogle}>
             <img src={googleIcon} alt="Logo do Google" />

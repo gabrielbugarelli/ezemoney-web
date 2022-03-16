@@ -24,10 +24,14 @@ export const SignInContainer = styled.section`
     height: 400px;
     border-radius: 10px;
     
-    gap: 3rem;
+    gap: 1rem;
 
     > img {
       width: 15rem;
+    }
+
+    > h1 {
+      color: var(--green-100);
     }
 
     > button {

@@ -69,7 +69,7 @@ export const NewTransactionModal = ({isOpen, onRequestClose}: NewTransactionModa
           <input 
             type="number" 
             placeholder="Valor" 
-            value={amount}
+            value={amount ? amount : ''}
             onChange={event => setAmount(Number(event.target.value))}
           />
 

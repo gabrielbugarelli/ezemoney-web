@@ -26,8 +26,7 @@ export const Header = ({onOpenNewTransactionModal}: HeaderProps)  => {
       setGreeting(`Boa noite, ${user?.name}!`);
     }
 
-  }, [])
-  
+  }, []);
 
   return (
     <Container>
