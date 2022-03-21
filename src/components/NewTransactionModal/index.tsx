@@ -8,13 +8,23 @@ import { FormEvent, useState } from 'react';
 import { useTransactions } from '../../hooks/useTransactions';
 import { useAuthentication } from '../../hooks/useAuthentication';
 
+type TransactionEditableType = {
+  amount?: number;
+  category?: string;
+  createdAt?: Object;
+  title?: string;
+  type?: string;
+  userId?: string
+}
+
 type NewTransactionModalProps = {
   isOpen: boolean;
   onRequestClose: () => void;
   editTransactionId?: string;
+  transactionEditable?: TransactionEditableType | undefined;
 }
 
-export const NewTransactionModal = ({isOpen, onRequestClose, editTransactionId}: NewTransactionModalProps) => {
+export const NewTransactionModal = ({isOpen, onRequestClose, editTransactionId, transactionEditable}: NewTransactionModalProps) => {
 
   const { user } = useAuthentication();
   const userId = user?.id;
@@ -28,20 +38,30 @@ export const NewTransactionModal = ({isOpen, onRequestClose, editTransactionId}:
 
   const handleCreateNewTransaction = async (event: FormEvent) => {
     event.preventDefault();
-  
-    let transactionsData = {
-      title,
-      amount,
-      category,
-      type,
-      userId
-    }
+
     
-    if(editTransactionId) {
+    if(editTransactionId && transactionEditable) {
+        
+      let transactionsData = {
+        title: title ? title : transactionEditable.title?.trim() != undefined ? transactionEditable.title : title,
+        amount: amount ? amount : transactionEditable.amount ? transactionEditable.amount : amount,
+        category: category ? category : transactionEditable.category?.trim() != undefined ? transactionEditable.category : category,
+        type:  type ? type : transactionEditable.type?.trim() != undefined ? transactionEditable.type : type,
+        userId
+      }
+
       await updateTransaction(transactionsData, editTransactionId);
     }
 
     else {
+      let transactionsData = {
+        title,
+        amount,
+        category,
+        type,
+        userId
+      }
+
       await createTransaction(transactionsData);
     }
 
@@ -68,14 +88,14 @@ export const NewTransactionModal = ({isOpen, onRequestClose, editTransactionId}:
 
           <input 
             autoFocus 
-            placeholder="Descrição"
+            placeholder={transactionEditable ? transactionEditable.title : "Descrição"}
             value={title}
             onChange={event => setTitle(event.target.value)}
           />
 
           <input 
-            type="number" 
-            placeholder="Valor" 
+            type="number"
+            placeholder={transactionEditable ? String(transactionEditable.amount) : "Valor"} 
             value={amount ? amount : ''}
             onChange={event => setAmount(Number(event.target.value))}
           />

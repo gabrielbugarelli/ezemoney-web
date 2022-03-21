@@ -1,5 +1,5 @@
 
-import { doc, deleteDoc } from  'firebase/firestore';
+import { doc, getDoc, deleteDoc } from  'firebase/firestore';
 import { useState } from 'react';
 import { useTransactions } from "../../hooks/useTransactions";
 import { database } from '../../services/firebaseConnection';
@@ -10,15 +10,24 @@ import { Container } from "./styles"
 export const TransactionsTable = () => {
   const { transactions } = useTransactions();
   const [ transactionId, setTransactionId ] = useState('');
+  const [transactionEditable, setTransactionEditable] = useState<{} | undefined>({});
   const [ openNewTransactionModal, setOpenNewTransactionModal ] = useState(false);
 
   const handleDeleteTransaction = async (transactionId: string) => {
     await deleteDoc(doc(database, 'transactions', transactionId));
   }
 
-  const handleEditTransaction = (transaction: any) => {
+  const handleEditTransaction = async (transaction: any) => {
+
+    const ref = doc(database, 'transactions', transaction.id);
+    const docSnap = await getDoc(ref);
+
+    setTransactionEditable(docSnap.data());
+    console.log(transactionEditable);
+    
+
     setOpenNewTransactionModal(true)
-    setTransactionId(transaction.id);    
+    setTransactionId(transaction.id);
   }
 
   const handleCloseTransactionModal = async () => {
@@ -77,6 +86,7 @@ export const TransactionsTable = () => {
               isOpen={openNewTransactionModal} 
               onRequestClose={handleCloseTransactionModal} 
               editTransactionId={transactionId}
+              transactionEditable={transactionEditable}
             />
           }
         </tbody>
