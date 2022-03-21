@@ -59,10 +59,20 @@ export const TransactionsProvider = ({children}: TransactionsProviderProps ) => 
   //A responsabilidade pelo gerenciamento dos dados ficam nos HOOKs
   const createTransaction = async (transactionInput: TransactionInput) => {
     try {
-      await addDoc(collection(database, "transactions"), {
-        ...transactionInput,
-        createdAt: new Date()
-      });
+      if (  transactionInput.title.trim() === '' || 
+            transactionInput.userId?.trim() === '' ||
+            transactionInput.amount === 0
+        ) {
+          alert('Descrição e Valor precisam ser preenchidos!');
+          return;
+      }
+
+      else {
+        await addDoc(collection(database, "transactions"), {
+          ...transactionInput,
+          createdAt: new Date()
+        });
+      }
 
     } catch (error) {
       console.warn(`Aconteceu um erro: ${error}`);
