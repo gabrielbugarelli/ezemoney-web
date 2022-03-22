@@ -4,17 +4,21 @@ import Modal from 'react-modal';
 import { useEffect, useState } from "react";
 import { NewTransactionModal } from "../../components/NewTransactionModal";
 import { useNavigate } from "react-router-dom";
+import { useAuthentication } from "../../hooks/useAuthentication";
 
 Modal.setAppElement('#root');
 
 export const Panel = () => {
   const [ userId, _] = useState(localStorage.getItem('userId'));
+  const { signWithGoogle } = useAuthentication();
   const navigate =   useNavigate();
 
   useEffect(() => {
     if(!userId) {
+      signWithGoogle();
       navigate('/');
     }
+
   }, []);
 
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
