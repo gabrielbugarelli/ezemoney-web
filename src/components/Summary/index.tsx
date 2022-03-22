@@ -9,20 +9,20 @@ export const Summary = () => {
   const { transactions } = useTransactions();
 
   const summary = transactions.reduce((acc, transaction) => {
-    if(transaction.type === 'deposit') {
-      acc.deposit += transaction.amount;
+    if(transaction.type === 'receita') {
+      acc.receita += transaction.amount;
       acc.total += transaction.amount;
     }
     else {
-      acc.withdraw += transaction.amount;
+      acc.despesa += transaction.amount;
       acc.total -= transaction.amount;
     }
 
     return acc;
 
   }, {
-    deposit: 0,
-    withdraw: 0,
+    receita: 0,
+    despesa: 0,
     total: 0
   })
   
@@ -36,7 +36,7 @@ export const Summary = () => {
         <strong>{Intl.NumberFormat('pt-BR', {
           style: 'currency',
           currency: 'BRL'
-        }).format(summary.deposit)}</strong>
+        }).format(summary.receita)}</strong>
       </div>
 
       <div>
@@ -47,7 +47,7 @@ export const Summary = () => {
         <strong>{Intl.NumberFormat('pt-BR', {
           style: 'currency',
           currency: 'BRL'
-        }).format(summary.withdraw)}</strong>
+        }).format(summary.despesa)}</strong>
       </div>
 
       <div className="highlight-background">
