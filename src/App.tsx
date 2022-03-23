@@ -26,6 +26,8 @@ export const App = () => {
           <img src={capaPochette} alt="Imagem de finanças do Pochette" />
 
           <p> Organize as suas <strong> finanças </strong> de forma <strong> prática</strong>.</p>
+
+          <footer>desenvolvido por <a href="https://www.kanislupus.com.br/" target="_blank"> Kanis Lupus</a> 🐺💻.</footer>
         </div>
       </DescriptionContainer>
 
