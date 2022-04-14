@@ -11,3 +11,22 @@ Atualmente, o projeto está sendo desenvolvido por [@gabrielbugarelli](https://g
 A versão mobile do projeto você pode conferir em [ezemoney-mobile](https://github.com/gabrielbugarelli/ezemoney-mobile)
 
 Sinta-se a vontade para deixar o seu feedback.
+
+
+# Como executar o projeto:
+## Com o terminal aberto, clone na sua máquina local:
+```
+git clone https://github.com/gabrielbugarelli/ezemoney-web.git
+```
+
+## Entre na pasta do projeto e instale as depenências com o comando:
+```
+npm install
+```
+
+## execute o projeto com o comando:
+```
+npm start
+```
+
+## Após isso, o projeto será levantado na porta localhost:3000
