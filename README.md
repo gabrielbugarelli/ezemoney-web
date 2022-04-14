@@ -24,7 +24,7 @@ git clone https://github.com/gabrielbugarelli/ezemoney-web.git
 npm install
 ```
 
-## execute o projeto com o comando:
+## Execute o projeto com o comando:
 ```
 npm start
 ```
