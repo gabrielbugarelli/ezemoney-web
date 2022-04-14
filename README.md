@@ -10,4 +10,4 @@ Atualmente, o projeto está sendo desenvolvido por [@gabrielbugarelli](https://g
 
 A versão mobile do projeto você pode conferir em [ezemoney-mobile](https://github.com/gabrielbugarelli/ezemoney-mobile)
 
-Sinta-se a vontate para deixar o seu feedback.
+Sinta-se a vontade para deixar o seu feedback.
