@@ -1,6 +1,6 @@
 import { Container, DescriptionContainer, SignInContainer } from "./styles/appStyle";
 
-import capaPochette from './assets/capa_pochette.png';
+import capaEzemoney from './assets/capa_ezemoney.png';
 import financeICon from './assets/finance.svg';
 import googleIcon from './assets/google-icon.svg';
 import { useAuthentication } from "./hooks/useAuthentication";
@@ -23,18 +23,18 @@ export const App = () => {
     <Container>
       <DescriptionContainer>
         <div>
-          <img src={capaPochette} alt="Imagem de finanças do Pochette" />
+          <img src={capaEzemoney} alt="Imagem de finanças do Ezemoney" />
 
           <p> Organize as suas <strong> finanças </strong> de forma <strong> prática</strong>.</p>
 
-          <footer>desenvolvido por <a href="https://www.kanislupus.com.br/" target="_blank"> Kanis Lupus</a> 🐺💻.</footer>
+          <footer>desenvolvido com ❤️ por <a href="https://github.com/gabrielbugarelli/" target="_blank"> @gabrielbugarelli </a> 🐺💻.</footer>
         </div>
       </DescriptionContainer>
 
       <SignInContainer>
         <div>
-          <img src={financeICon} alt="Logo Pochette" />
-          <h1>Faça login no Pochette</h1>
+          <img src={financeICon} alt="Logo Ezemoney" />
+          <h1>Faça login no Ezemoney</h1>
 
           <button onClick={handleSignInWithGoogle}>
             <img src={googleIcon} alt="Logo do Google" />

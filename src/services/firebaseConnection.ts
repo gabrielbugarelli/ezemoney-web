@@ -4,12 +4,12 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBFcq0N0EyZ_qVLx6j_4tgFUPdMMsRkZew",
-  authDomain: "kashflow-test.firebaseapp.com",
-  projectId: "kashflow-test",
-  storageBucket: "kashflow-test.appspot.com",
-  messagingSenderId: "471805840369",
-  appId: "1:471805840369:web:082c70dc8db833eeea1250"
+  apiKey: "AIzaSyCoxmBxtUG0vgabVgi2JSAfA4YqV_Jb9ow",
+  authDomain: "ezemoney-web.firebaseapp.com",
+  projectId: "ezemoney-web",
+  storageBucket: "ezemoney-web.appspot.com",
+  messagingSenderId: "546123846145",
+  appId: "1:546123846145:web:7011a3e546c90c1bb96600"
 };
 
 // Initialize Firebase
